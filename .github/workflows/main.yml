@@ -1,1 +1,38 @@
+name: Github Actions Pipeline
 
+on: [push]
+
+jobs:
+  Test-Ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+      - uses: action/checkout@v3
+      - name: Test code
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm test
+  Test-Windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+      - uses: action/checkout@v3
+      - name: Test code
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm test
+  Test-MacOs:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+      - uses: action/checkout@v3
+      - name: Test code
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm test
