@@ -1,7 +1,7 @@
 name: Relievely Pipeline
 on: [ push ]
 jobs:
-  Explore-GitHub-Actions:
+  Test-Ubuntu:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout repository"
@@ -10,9 +10,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: "Testing app in environment"
       - run: npm ci
       - run: npm test
-  Build-With-Github:
+  Test-MacOs:
     runs-on: macos-latest
     steps:
       - name: "Checkout repository"
@@ -21,6 +22,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: "Testing app in environment"
       - run: npm ci
       - run: npm test
   Test-Windows:
@@ -32,5 +34,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: "Testing app in environment"
       - run: npm ci
       - run: npm test
