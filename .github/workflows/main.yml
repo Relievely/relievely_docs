@@ -1,1 +1,36 @@
-
+name: Relievely Pipeline
+on: [ push ]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repository"
+      - uses: actions/checkout@v3
+      - name: "Setting up node environment"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm test
+  Build-With-Github:
+    runs-on: macos-latest
+    steps:
+      - name: "Checkout repository"
+      - uses: actions/checkout@v3
+      - name: "Setting up node environment"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm test
+  Test-Windows:
+    runs-on: windows-latest
+    steps:
+      - name: "Checkout repository"
+      - uses: actions/checkout@v3
+      - name: "Setting up node environment"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm test
