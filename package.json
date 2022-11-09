@@ -1,0 +1,14 @@
+{
+  "name": "relievely",
+  "author": "Team 4 All",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "testc": "jest --coverage --passWithNoTests"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.2",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3"
+  }
+}
