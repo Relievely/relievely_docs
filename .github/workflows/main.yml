@@ -6,10 +6,12 @@ jobs:
     steps:
       - name: "Checkout repository"
       - uses: actions/checkout@v3
+      - run: echo "Checked out"
       - name: "Setting up node environment"
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - run: echo "Using node version 18"
       - name: "Testing app in environment"
       - run: npm ci
       - run: npm test
@@ -18,10 +20,12 @@ jobs:
     steps:
       - name: "Checkout repository"
       - uses: actions/checkout@v3
+      - run: echo "Checked out"
       - name: "Setting up node environment"
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - run: echo "Using node version 18"
       - name: "Testing app in environment"
       - run: npm ci
       - run: npm test
@@ -30,10 +34,12 @@ jobs:
     steps:
       - name: "Checkout repository"
       - uses: actions/checkout@v3
+      - run: echo "Checked out"
       - name: "Setting up node environment"
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - run: echo "Using node version 18"
       - name: "Testing app in environment"
       - run: npm ci
       - run: npm test
