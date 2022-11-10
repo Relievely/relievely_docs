@@ -1,38 +1,45 @@
-name: Github Actions Pipeline
-
-on: [push]
-
+name: Relievely Pipeline
+on: [ push ]
 jobs:
   Test-Ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-      - uses: action/checkout@v3
-      - name: Test code
+      - run: echo "Testing with Ubuntu"
+      - uses: actions/checkout@v3
+      - run: echo "Checked out"
+      - run: echo "Setting up node environment"
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
-      - run: npm test
-  Test-Windows:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout code
-      - uses: action/checkout@v3
-      - name: Test code
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      - run: echo "Using node version 18"
+      - run: echo "Testing app in environment"
       - run: npm ci
       - run: npm test
   Test-MacOs:
     runs-on: macos-latest
     steps:
-      - name: Checkout code
-      - uses: action/checkout@v3
-      - name: Test code
+      - run: echo "Checkout repository"
+      - uses: actions/checkout@v3
+      - run: echo "Checked out"
+      - run: echo "Setting up node environment"
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - run: echo "Using node version 18"
+      - run: echo "Testing app in environment"
+      - run: npm ci
+      - run: npm test
+  Test-Windows:
+    runs-on: windows-latest
+    steps:
+      - run: echo "Checkout repository"
+      - uses: actions/checkout@v3
+      - run: echo "Checked out"
+      - run: echo "Setting up node environment"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: echo "Using node version 18"
+      - run: echo "Testing app in environment"
       - run: npm ci
       - run: npm test
