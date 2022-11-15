@@ -1,8 +1,9 @@
 name: Relievely Pipeline
 on:
   push:
-    - "!**.txt"
-    - "!**.md"
+    paths:
+      - "!**.txt"
+      - "!**.md"
 jobs:
   Test-Ubuntu:
     runs-on: ubuntu-latest
