@@ -1,9 +1,8 @@
-```mermaid
 erDiagram
-    COMPANIONS {
-        int id PK "Id of the companion"
-        string name "Name of the companion"
-    }
+COMPANIONS {
+int id PK "Id of the companion"
+string name "Name of the companion"
+}
 
     ACTIVITY {
         int id PK "Id of the activity"
@@ -55,4 +54,4 @@ erDiagram
         string content "Content of the note"
         int progressID FK "Id of the corresponding progress item"
     }
-```
+    NOTES || -- |{ PROGRESS : references
