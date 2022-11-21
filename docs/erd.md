@@ -51,5 +51,5 @@ erDiagram
     }
     PROGRESS || -- |{ NOTES : "can have"
 
-    "WIKI / INFORMATION"
+    "WIKI"
 ```
