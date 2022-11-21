@@ -51,5 +51,7 @@ erDiagram
     }
     PROGRESS || -- |{ NOTES : "can have"
 
-    "WIKI"
+    WIKI {
+        int id PK "Id of the information"
+    }
 ```
