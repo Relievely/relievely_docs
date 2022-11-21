@@ -1,0 +1,16 @@
+{
+  "name": "relieve",
+  "version": "1.0.0",
+  "scripts": {
+    "pretest": "",
+    "test": "jest --passWithNoTests",
+    "testc": "jest --coverage --passWithNoTests",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
+    "dev": "tsnd --respawn ./src/index.ts"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
