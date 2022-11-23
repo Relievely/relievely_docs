@@ -8,17 +8,9 @@ erDiagram
     ACTIVITY {
         int id PK "Id of the activity"
         string name "Name of the activity"
-        int categoryId FK "Category Id of the activity"
-        int reminderId FK "Id of the reminder for this activity"
+        enum category "Category Id of the activity (Guided or Non-Guided)"
     }
-    ACTIVITY || -- |{ ACTIVITY-CATEGORY : contains
     ACTIVITY || -- |{ REMINDERS : "Can have"
-
-
-    ACTIVITY-CATEGORY {
-        int id PK "Id of the category"
-        string name "Name of the category"
-    }
 
     GOALS {
         int id PK "Id of the goal"
@@ -37,6 +29,7 @@ erDiagram
     REMINDERS {
         int id PK "Id of the reminder"
         string name "Name of the reminder"
+        int referenceID FK "Id for the activity or goal it represents"
     }
 
     PROGRESS {
@@ -51,5 +44,7 @@ erDiagram
     }
     PROGRESS || -- |{ NOTES : "can have"
 
-    "WIKI / INFORMATION"
+    WIKI {
+        int id PK "Id of the information"
+    }
 ```
