@@ -1,16 +1,39 @@
 ```mermaid
 erDiagram
-    COMPANIONS {
+    PERSONA {
         int id PK "Id of the companion"
         string name "Name of the companion"
+        string character "Unicode character of the emoji"
     }
+    USERDATA {
+        string name
+        json order
+        int personaID
+    }
+    USERDATA || -- |{ PERSONA : "References"
     
     ACTIVITY {
         int id PK "Id of the activity"
         string name "Name of the activity"
+        string description "Description of the activity"
         enum category "Category Id of the activity (Guided or Non-Guided)"
     }
     ACTIVITY || -- |{ REMINDERS : "Can have"
+
+    ACITVITY-LOG {
+        int id PK "Id of the log item"
+        int activityID FK "Id of the corresponding activity"
+        int timeStart "Start of the activity session"
+        int timeEnd "End of the activity session"
+    }
+    ACITVITY-LOG || -- |{ ACTIVITY : "References to"
+    ACITVITY-LOG || -- |{ ACTIVITY-RATING : "Can have"
+
+    ACTIVITY-RATING {
+        int id PK "Id of the rating item"
+        int logID FK "Id of the corresponding log item"
+        bool state "Boolean state if this was good or bad"
+    }
 
     GOALS {
         int id PK "Id of the goal"
@@ -46,5 +69,8 @@ erDiagram
 
     WIKI {
         int id PK "Id of the information"
+        string title "Title of the information"
+        string content "Content of the information"
+        string excerpt "Short version of the information"
     }
 ```
