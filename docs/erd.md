@@ -18,7 +18,7 @@ erDiagram
         string description "Description of the activity"
         enum category "Category Id of the activity (Guided or Non-Guided)"
     }
-    ACTIVITY || -- |{ REMINDERS : "Can have"
+    ACTIVITY || -- |{ REMINDERS-ACTIVITY : "Can have"
 
     ACITVITY-LOG {
         int id PK "Id of the log item"
@@ -39,7 +39,6 @@ erDiagram
         int id PK "Id of the goal"
         date startTime "Time when this goals was created"
         date endTime "Time when this goal should be completed"
-        int reminderId "Id of the corresponding reminder when given else null"
         int categoryId FK "Id of the corresponding category"
     }
     GOALS || -- |{ GOALS-CATEGORY : contains
@@ -47,12 +46,20 @@ erDiagram
         int id PK "Id of the goal category"
         string name "Name of the goal category"
     }
-    GOALS || -- |{ REMINDERS : "can have"
+    GOALS || -- |{ REMINDERS-GOALS : "can have"
 
-    REMINDERS {
+    REMINDERS-ACTIVITY {
         int id PK "Id of the reminder"
         string name "Name of the reminder"
-        int referenceID FK "Id for the activity or goal it represents"
+        dateTime triggerTime "Time of the reminder to be triggered"
+        int referenceID FK "Id for the activity"
+    }
+
+    REMINDERS-GOALS {
+        int id PK "Id of the reminder"
+        string name "Name of the reminder"
+        dateTime triggerTime "Time of the reminder to be triggered"
+        int referenceID FK "Id for the goal it represents"
     }
 
     PROGRESS {
