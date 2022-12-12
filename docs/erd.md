@@ -47,7 +47,7 @@ erDiagram
         int id PK "Id of the goal category"
         string name "Name of the goal category"
     }
-    GOALS || -- |{ REMINDERS-GOALS : "can have"
+    GOALS || -- |{ REMINDERS-GOALS : "can have multiple"
 
     REMINDERS-ACTIVITY {
         int id PK "Id of the reminder"
