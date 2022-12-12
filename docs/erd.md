@@ -37,6 +37,7 @@ erDiagram
 
     GOALS {
         int id PK "Id of the goal"
+        string name "Name of the goal"
         date startTime "Time when this goals was created"
         date endTime "Time when this goal should be completed"
         int categoryId FK "Id of the corresponding category"
