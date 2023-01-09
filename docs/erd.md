@@ -1,17 +1,19 @@
 ```mermaid
 erDiagram
-    PERSONA {
+PERSONA {
         int id PK "Id of the companion"
         string name "Name of the companion"
         string character "Unicode character of the emoji"
     }
-    USERDATA {
+USERDATA {
         string name
         json order
         int personaID
     }
-    USERDATA || -- |{ PERSONA : "References"
-    
+USERDATA || -- |{ PERSONA : "References"
+```
+```mermaid
+erDiagram   
     ACTIVITY {
         int id PK "Id of the activity"
         string name "Name of the activity"
@@ -35,6 +37,15 @@ erDiagram
         bool state "Boolean state if this was good or bad"
     }
 
+    REMINDERS-ACTIVITY {
+        int id PK "Id of the reminder"
+        string name "Name of the reminder"
+        dateTime triggerTime "Time of the reminder to be triggered"
+        int referenceID FK "Id for the activity"
+    }
+```
+```mermaid
+erDiagram
     GOALS {
         int id PK "Id of the goal"
         string name "Name of the goal"
@@ -49,20 +60,15 @@ erDiagram
     }
     GOALS || -- |{ REMINDERS-GOALS : "can have multiple"
 
-    REMINDERS-ACTIVITY {
-        int id PK "Id of the reminder"
-        string name "Name of the reminder"
-        dateTime triggerTime "Time of the reminder to be triggered"
-        int referenceID FK "Id for the activity"
-    }
-
     REMINDERS-GOALS {
         int id PK "Id of the reminder"
         string name "Name of the reminder"
         dateTime triggerTime "Time of the reminder to be triggered"
         int referenceID FK "Id for the goal it represents"
     }
-
+```
+```mermaid
+erDiagram
     PROGRESS {
         int id PK "Id of the progress item"
         date time "Time when this item was created"
@@ -74,7 +80,9 @@ erDiagram
         int progressID FK "Id of the corresponding progress item"
     }
     PROGRESS || -- |{ NOTES : "can have"
-
+```
+```mermaid
+erDiagram
     WIKI {
         int id PK "Id of the information"
         string title "Title of the information"
